@@ -71,8 +71,7 @@ def _implicit_tree(device):
                 netconf
             """
     elif device.hw.Arista:
-        # This part of configuration will no
-        эта часть конфигурации будет не видна в конфиге, если она включена с таким набором полей:
+        # эта часть конфигурации будет не видна в конфиге, если она включена с таким набором полей:
         text = r"""
                 ip load-sharing trident fields ipv6 destination-port source-ip ingress-interface destination-ip source-port flow-label
                 ip load-sharing trident fields ip source-ip source-port destination-ip destination-port ingress-interface
