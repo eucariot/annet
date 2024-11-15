@@ -71,7 +71,8 @@ def _implicit_tree(device):
                 netconf
             """
     elif device.hw.Arista:
-        # эта часть конфигурации будет не видна в конфиге, если она включена с таким набором полей:
+        # This part of configuration will no
+        эта часть конфигурации будет не видна в конфиге, если она включена с таким набором полей:
         text = r"""
                 ip load-sharing trident fields ipv6 destination-port source-ip ingress-interface destination-ip source-port flow-label
                 ip load-sharing trident fields ip source-ip source-port destination-ip destination-port ingress-interface
@@ -135,11 +136,9 @@ def _implicit_tree(device):
             """
     elif device.hw.Cisco:
         text += r"""
-            !interface *Ethernet*
+            !interface /\S*Ethernet\S+/
                 mtu 1500
                 no shutdown
-
-
         """
         if device.hw.Cisco.Catalyst:
             # this configuration is not visible in running-config when enabled
